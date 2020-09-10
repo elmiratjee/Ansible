@@ -1,15 +1,9 @@
 --- 
 - 
-  name: "Run Updates on Terminal Servers then wait 7 mins"
+  hosts: 
+    - all
+  name: "Simple Ping client test"
   tasks: 
-    reboot: true
-    reboot_timeout: 420
-    win_updates: 
-      category_names: 
-        - Application
-        - CriticalUpdates
-        - DefinitionUpdates
-        - SecurityUpdates
-        - Updates
-      whitelist: 
-        - KB4093120
+    - 
+      action: ping
+
