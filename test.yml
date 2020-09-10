@@ -1,6 +1,5 @@
 --- 
 - 
-  connection: winrm
   name: "Run Updates on App Servers and wait 10 mins"
   tasks: 
     win_updates: 
