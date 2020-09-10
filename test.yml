@@ -1,8 +1,6 @@
-  #Simple ping Command 
----
-  connection: winrm
- - name: "Simple Ping client test"
-   hosts: 
-     - all
-   tasks:
-   - action: ping
+- name: Choose which Windows updates to install
+  win_updates:
+    category_names:
+      - SecurityUpdates
+      - CriticalUpdates
+      - UpdateRollups
