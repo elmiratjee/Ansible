@@ -7,4 +7,4 @@
     tasks:
       - name: Checking for updates
           apt:
-            update_cache: yes
+          update_cache: yes
