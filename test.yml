@@ -1,9 +1,10 @@
---- 
-- 
-  hosts: 
-    - all
-  name: "Simple Ping client test"
-  tasks: 
-    - 
-      action: ping
-
+  
+---
+  - name: Playbook
+    hosts: all
+    become: yes
+    become_user: root
+    tasks:
+      - name: Checking for updates
+          apt:
+            update_cache: yes
