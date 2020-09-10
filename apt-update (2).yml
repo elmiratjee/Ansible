@@ -1,0 +1,8 @@
+#apt update voor elmira
+---
+  - name: installing apt playbook
+    hosts: all
+    tasks:
+      - name: Gathering all updates
+        apt:
+          upgrade: dist
