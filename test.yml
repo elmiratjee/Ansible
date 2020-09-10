@@ -1,10 +1,11 @@
-  
 ---
-  - name: Playbook
-    hosts: all
-    become: yes
-    become_user: root
-    tasks:
-        - name: Update all packages to the latest version
-            apt:
-              upgrade: dist
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install packages
+    apt:
+      name:
+      - ntpdate
+      - nmap
+      state: latest
+      cache_valid_time: 3600
