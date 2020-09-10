@@ -1,3 +1,17 @@
 --- 
 - 
   connection: winrm
+  hosts: Windows_Hosts
+  name: "Run Updates on Terminal Servers then wait 7 mins"
+  tasks: 
+    reboot: true
+    reboot_timeout: 420
+    win_updates: 
+      category_names: 
+        - Application
+        - CriticalUpdates
+        - DefinitionUpdates
+        - SecurityUpdates
+        - Updates
+      whitelist: 
+        - KB4093120
