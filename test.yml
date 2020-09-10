@@ -5,6 +5,6 @@
     become: yes
     become_user: root
     tasks:
-      - name: Checking for updates
-          apt:
-          update_cache: yes
+        - name: Update all packages to the latest version
+            apt:
+              upgrade: dist
