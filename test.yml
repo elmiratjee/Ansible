@@ -1,9 +1,10 @@
-- name: Run Updates on App Servers and wait 10 mins
+--- 
+- 
   connection: winrm
-
-  tasks:
-    win_updates:
-      category_names:
+  name: "Run Updates on App Servers and wait 10 mins"
+  tasks: 
+    win_updates: 
+      category_names: 
         - CriticalUpdates
         - DefinitionUpdates
         - SecurityUpdates
