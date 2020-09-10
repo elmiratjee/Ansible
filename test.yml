@@ -1,7 +1,5 @@
 --- 
 - 
-  connection: winrm
-  hosts: Windows_Hosts
   name: "Run Updates on Terminal Servers then wait 7 mins"
   tasks: 
     reboot: true
