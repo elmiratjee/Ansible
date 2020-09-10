@@ -5,7 +5,4 @@
   - name: Install packages
     apt:
       name:
-      - ntpdate
-      - nmap
-      state: latest
-      cache_valid_time: 3600
+        upgrade: dist
