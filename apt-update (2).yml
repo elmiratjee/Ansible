@@ -6,8 +6,10 @@
       - name: Gathering all updates
         apt:
           upgrade: dist
-      - name: Upgrade all packages to the latest version
-        become:  true
-        apt:
-           name: "*"
-           state: latest
+          name: "*"
+          state: latest
+      # - name: Upgrade all packages to the latest version
+      #   become:  true
+      #   apt:
+      #      name: "*"
+      #      state: latest
