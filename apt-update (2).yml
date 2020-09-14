@@ -8,6 +8,6 @@
         apt:
           upgrade: dist
       - name: Upgrade all packages on servers
-        apt: 
-          upgrade:  dist 
-          force_apt_get:  yes
+        apt:
+          name: "*"
+          state: latest
