@@ -7,6 +7,7 @@
         apt:
           upgrade: dist
       - name: Upgrade all packages to the latest version
+        become:  yes
         apt:
            name: "*"
            state: latest
