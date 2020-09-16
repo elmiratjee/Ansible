@@ -5,7 +5,7 @@
     become_user: root
     tasks:
       - name: Checking for updates/installing
-        dnf: 
+        apt: 
           name: "httpd"
           state: latest
       - name: Starting up apache /enabling appache
