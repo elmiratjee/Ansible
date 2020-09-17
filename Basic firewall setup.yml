@@ -1,0 +1,26 @@
+---
+  - name: creating a webserver
+    hosts: all
+    become: yes
+    become_user: root
+    tasks:
+      - name: Enable UFW
+        ufw:
+          state: enabled
+      - name: Set logging
+        ufw:
+          logging: 'on'
+      - name: Allow SSH
+        ufw:
+          rule: allow
+          name: OpenSSH
+      - name: Allow all access to tcp port 80
+        ufw:
+          rule: allow
+          port: '80'
+          proto: tcp
+      - name: Deny all access to udp port 69 (TFTP)
+        ufw:
+          rule: deny
+          port: '69'
+          proto: udp
