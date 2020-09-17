@@ -1,5 +1,5 @@
 ---
-  - name: creating a webserver
+  - name: creating a basic firewall setup
     hosts: all
     become: yes
     become_user: root
