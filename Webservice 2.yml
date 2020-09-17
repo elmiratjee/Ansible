@@ -12,12 +12,18 @@
         service:
           name: apache2 
           state: started
-      - name: Open port 80 for http access
-        firewalld:
-          service: apache2
-          permanent: true
+      - name: Enable UFW
+        ufw:
           state: enabled
-      - name: Restart the firewalld service to load in the firewall changes
-        service: 
-          name: firewalld 
-          state: restarted
+      - name: Set logging
+        ufw:
+          logging: 'on'
+      - name: Allow SSH
+        ufw:
+          rule: allow
+          name: OpenSSH
+      - name: Allow all access to tcp port 80
+        ufw:
+          rule: allow
+          port: '80'
+          proto: tcp
