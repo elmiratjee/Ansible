@@ -22,7 +22,7 @@
         notify:
           - restart apache2
       - name: clone basic html template
-        git: repo=https://github.com/do-community/ansible-apache-tutorial.git dest=/var/www/html/index.html mode=0777
+        git: repo=https://github.com/do-community/ansible-apache-tutorial.git dest=/var/www/html/index.html update=no mode=0777
       - name: Enable UFW
         ufw:
           state: enabled
