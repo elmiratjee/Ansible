@@ -33,10 +33,10 @@
         ufw:
           rule: allow
           name: OpenSSH
-      - name: Allow all access to tcp port 80
+      - name: Allow all access to tcp port 81
         ufw:
           rule: allow
-          port: '80'
+          port: '81'
           proto: tcp
 
     handlers:
