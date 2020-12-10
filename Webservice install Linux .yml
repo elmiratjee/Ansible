@@ -5,13 +5,24 @@
     become_user: root
     tasks:
       - name: Install apache packages 
-        apt:
-          name: apache2
-          state: present
-      - name: ensure apache2 is running
-        service:
-          name: apache2 
-          state: started
+        apt: name={{ item }} update_cache=yes state=latest
+        with_items:
+        - apache2
+        - git
+      - name: enabled mod_rewrite
+        apache2_module: name=rewrite state=present
+        notify:
+          - restart apache2
+      - name: apache2 listen on port 8081
+        lineinfile: dest=/etc/apache2/ports.conf regexp="^Listen 80" line="Listen 8081" state=present
+        notify:
+          - restart apache2
+      - name: apache2 virtualhost on port 8081
+        lineinfile: dest=/etc/apache2/sites-available/000-default.conf regexp="^<VirtualHost \*:80>" line="<VirtualHost *:8081>" state=present
+        notify:
+          - restart apache2
+      - name: clone basic html template
+        git: repo=https://github.com/CompuIves/static-files-example.git dest=/var/www/example.com update=no
       - name: Enable UFW
         ufw:
           state: enabled
@@ -27,3 +38,7 @@
           rule: allow
           port: '80'
           proto: tcp
+
+    handlers:
+      - name: restart apache2
+        service: name=apache2 state=restarted
