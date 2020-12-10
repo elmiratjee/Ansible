@@ -22,7 +22,7 @@
         notify:
           - restart apache2
       - name: clone basic html template
-        git: repo=https://github.com/CompuIves/static-files-example.git dest=/var/www/example.com update=no
+        git: repo=https://github.com/do-community/ansible-apache-tutorial.git dest=/var/www/example.com update=no
       - name: Enable UFW
         ufw:
           state: enabled
