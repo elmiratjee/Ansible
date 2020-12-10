@@ -4,8 +4,8 @@
     become: yes
     become_user: root
     vars:
-    http_port: 80
-    domain: example.com
+      http_port: 80
+      domain: example.com
 
     tasks:
 
