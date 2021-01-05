@@ -1,5 +1,11 @@
 --- 
 - hosts: zabbix-server
+  tasks:
+    - name: install packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - galaxyprojectdotorg.postgresql
+        - dj-wasabi.zabbix-server
   roles: 
     - role: galaxyprojectdotorg.postgresql
       postgresql_pg_hba_conf: 
