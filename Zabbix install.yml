@@ -9,9 +9,9 @@
       - mysql-server
     - name: Start the MySQL service
       service: 
-    - name: mysql 
-      state: started
-      enabled: true
+      - name: mysql 
+        state: started
+        enabled: true
     
   roles:
      - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
