@@ -1,4 +1,5 @@
 - hosts: 192.168.44.70
   become: yes
+  become_user: root    
   roles:
      - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
