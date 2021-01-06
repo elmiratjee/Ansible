@@ -3,7 +3,7 @@
   become_user: root
   tasks:
     - name: Install MySQL
-      action: apt pkg=$item state=latest
+      apt: name={{ item }} state=latest
       with_items:
         - mysql-server-core-5.5
         - mysql-client-core-5.5
