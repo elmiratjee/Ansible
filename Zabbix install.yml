@@ -9,7 +9,7 @@
       - mysql-server
     - name: Start the MySQL service
       service: 
-      - name: mysql 
+        name: mysql 
         state: started
         enabled: true
     
