@@ -1,17 +1,5 @@
 - hosts: 192.168.44.70
   become: yes
   become_user: root
-  tasks:
-    - name: Install MySQL
-      apt: name={{ item }} update_cache=yes cache_valid_time=3600 state=present
-      with_items:
-      - python-mysqldb
-      - mysql-server
-    - name: Start the MySQL service
-      service: 
-        name: mysql 
-        state: started
-        enabled: true
-    
   roles:
      - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
