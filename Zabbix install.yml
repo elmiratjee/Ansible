@@ -1,5 +1,22 @@
 - hosts: 192.168.44.70
   become: yes
-  become_user: root    
+  become_user: root
+  tasks:
+    - name: Install MySQL
+      action: apt pkg=$item state=installed
+      with_items:
+        - mysql-server-core-5.5
+        - mysql-client-core-5.5
+        - libmysqlclient-dev
+        - python-mysqldb
+        - mysql-server
+        - mysql-client
+
+    - name: Start the MySQL service
+      action: service name=mysql state=started
+
+    - name: Remove the test database
+      mysql_db: name=test state=absent
+    
   roles:
      - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
