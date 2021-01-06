@@ -9,8 +9,11 @@
         - mysql-server
         - mysql-client
 
-    - name: Start the MySQL service
-      action: service name=mysql state=started
+    - name: Enable the MySQL service
+      service:
+        name: mysqld
+        state: started
+        enabled: true
 
     - name: Remove the test database
       mysql_db: name=test state=absent
