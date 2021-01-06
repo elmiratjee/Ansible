@@ -1,4 +1,4 @@
-- hosts: Linux Hosts
+- hosts: 192.168.44.70
   become: yes
   roles:
      - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
