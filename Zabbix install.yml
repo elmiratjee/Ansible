@@ -1,9 +1,4 @@
----
-- hosts: all
+- hosts: Linux Hosts
+  become: yes
   roles:
-    - role: ansible-pip
-      tags: skip_ansible_lint
-    - role: ansible-docker
-      tags: skip_ansible_lint
-
-    - role: ansible-zabbix-docker
+     - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
