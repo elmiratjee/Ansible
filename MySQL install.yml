@@ -10,7 +10,11 @@
         - mysql-client
 
     - name: Restart MySQL
-      service: name=mysql state=restarted
+      service: 
+        name: mysql 
+        state: restarted
 
     - name: Remove the test database
-      mysql_db: name=test state=absent
+      mysql_db: 
+        name: test
+        state: absent
