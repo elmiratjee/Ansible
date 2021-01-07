@@ -2,4 +2,4 @@
   become: yes
   become_user: root
   roles:
-     - { role: dj-wasabi.zabbix-server, zabbix_server_database: pgsql, zabbix_server_database_long: pgsql } 
+     - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql } 
