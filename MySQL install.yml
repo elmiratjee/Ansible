@@ -5,15 +5,14 @@
     - name: Install MySQL
       apt: name={{ item }} state=latest
       with_items:
+        - mysql-server-5.6
+        - mysql-client-5.6
         - python-mysqldb
         - mysql-server
         - mysql-client
 
-    - name: Enable the MySQL service
-      service:
-        name: mysql
-        state: started
-        enabled: true
+    - name: Restart MySQL
+      service: name=mysql state=restarted
 
     - name: Remove the test database
       mysql_db: name=test state=absent
