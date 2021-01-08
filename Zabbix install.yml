@@ -1,5 +1,7 @@
 - hosts: 192.168.180.172
   become: yes
   become_user: root
-  roles:
-     - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql, dj-wasabi.zabbix-web} 
+ roles:
+     - { role: geerlingguy.apache }
+     - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql, zabbix_server_dbport: 3306 }
+     - { role: dj-wasabi.zabbix-web, zabbix_url: zabbix.dj-wasabi.nl, zabbix_server_database: mysql, zabbix_server_database_long: mysql, zabbix_server_dbport: 3306}
