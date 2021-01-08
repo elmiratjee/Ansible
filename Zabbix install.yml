@@ -4,4 +4,4 @@
   roles:
       - { role: geerlingguy.apache }
       - { role: dj-wasabi.zabbix-server, zabbix_server_database: mysql, zabbix_server_database_long: mysql, zabbix_server_dbport: 3306 }
-      - { role: dj-wasabi.zabbix-web, zabbix_apache_vhost_listen_ip: 192.168.180.172 , zabbix_server_database: mysql, zabbix_server_database_long: mysql, zabbix_server_dbport: 3306}
+      - { role: dj-wasabi.zabbix-web, zabbix_url: localhost , zabbix_server_database: mysql, zabbix_server_database_long: mysql, zabbix_server_dbport: 3306}
