@@ -3,7 +3,7 @@
   become: yes
   become_user: root
   tasks:
-    - name: Ansible insert lines
+    - name: Change the apache conf for Zabbix
       copy:
         dest: "/etc/httpd/conf.d/zabbix.conf"
         content: |
